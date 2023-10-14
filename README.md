@@ -1,3 +1,16 @@
-# esp_component_template
+# ESP32 ESP-IDF and ESP8266 RTOS SDK component for all my projects
 
-esp_component_template
+## Using
+
+In an existing project, run the following command to install the component:
+
+```text
+cd ../your_project/components
+git clone http://git.zh.com.ru/alexey.zholtikov/zh_config.git
+```
+
+In the application, add the component:
+
+```c
+#include "zh_config.h"
+```
