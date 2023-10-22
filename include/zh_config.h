@@ -309,20 +309,29 @@ char *get_sensor_type_value_name(ha_sensor_type_t value);
 typedef struct zh_sensor_config_message_t
 {
     uint8_t unique_id;
-    ha_sensor_type_t sensor_type;
     ha_sensor_device_class_t sensor_device_class;
+    char unit_of_measurement[5];
+    uint8_t suggested_display_precision;
+    uint16_t expire_after;
+    bool enabled_by_default;
+    bool force_update;
+    uint8_t qos;
+    bool retain;
+} __attribute__((packed)) zh_sensor_config_message_t;
+
+typedef struct zh_binary_sensor_config_message_t
+{
+    uint8_t unique_id;
     ha_binary_sensor_device_class_t binary_sensor_device_class;
     ha_on_off_type_t payload_on;
     ha_on_off_type_t payload_off;
-    char unit_of_measurement[5];
-    uint8_t suggested_display_precision;
     uint16_t expire_after;
     uint16_t off_delay;
     bool enabled_by_default;
     bool force_update;
     uint8_t qos;
     bool retain;
-} __attribute__((packed)) zh_sensor_config_message_t;
+} __attribute__((packed)) zh_binary_sensor_config_message_t;
 
 typedef struct zh_led_config_message_t
 {
@@ -351,22 +360,11 @@ typedef struct zh_switch_config_message_t
 typedef struct zh_sensor_status_message_t
 {
     ha_sensor_type_t sensor_type;
-    ha_on_off_type_t status;
     float temperature;
     float humidity;
     float pressure;
     float quality;
     float voltage;
-    float reserved_1;  // Reserved for future development.
-    float reserved_2;  // Reserved for future development.
-    float reserved_3;  // Reserved for future development.
-    float reserved_4;  // Reserved for future development.
-    float reserved_5;  // Reserved for future development.
-    float reserved_6;  // Reserved for future development.
-    float reserved_7;  // Reserved for future development.
-    float reserved_8;  // Reserved for future development.
-    float reserved_9;  // Reserved for future development.
-    float reserved_10; // Reserved for future development.
 } __attribute__((packed)) zh_sensor_status_message_t;
 
 typedef struct zh_led_status_message_t
@@ -407,6 +405,7 @@ typedef struct zh_keep_alive_message_t
 
 typedef union zh_config_message_t
 {
+    zh_binary_sensor_config_message_t binary_sensor_config_message;
     zh_sensor_config_message_t sensor_config_message;
     zh_led_config_message_t led_config_message;
     zh_switch_config_message_t switch_config_message;
