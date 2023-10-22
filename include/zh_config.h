@@ -315,8 +315,9 @@ typedef struct zh_sensor_config_message_t
     ha_on_off_type_t payload_on;
     ha_on_off_type_t payload_off;
     char unit_of_measurement[5];
-    uint8_t expire_after;
-    uint8_t off_delay;
+    uint8_t suggested_display_precision;
+    uint16_t expire_after;
+    uint16_t off_delay;
     bool enabled_by_default;
     bool force_update;
     uint8_t qos;
