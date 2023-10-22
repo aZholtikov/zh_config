@@ -430,7 +430,7 @@ typedef struct zh_espnow_ota_message_t
     char app_version[32];
     uint16_t part;
     uint8_t data_len;
-    uint8_t data[145];
+    uint8_t data[150];
 } __attribute__((packed)) zh_espnow_ota_message_t;
 
 typedef struct zh_espnow_ota_data_t
