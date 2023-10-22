@@ -365,6 +365,11 @@ typedef struct zh_sensor_status_message_t
     float pressure;
     float quality;
     float voltage;
+    float reserved_1; // Reserved for future development.
+    float reserved_2; // Reserved for future development.
+    float reserved_3; // Reserved for future development.
+    float reserved_4; // Reserved for future development.
+    float reserved_5; // Reserved for future development.
 } __attribute__((packed)) zh_sensor_status_message_t;
 
 typedef struct zh_led_status_message_t
