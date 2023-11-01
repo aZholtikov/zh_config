@@ -26,6 +26,7 @@
     DF(ZHDT_DIMMER, "espnow_dimmer")               \
     DF(ZHDT_TERRARIUM, "espnow_terrarium")         \
     DF(ZHDT_RF_SENSOR, "rf_sensor")                \
+    DF(ZHDT_BINARY_SENSOR, "espnow_sensor")        \
     DF(ZHDT_MAX, "")
 
 typedef enum zh_device_type_t
@@ -295,6 +296,7 @@ typedef enum ha_led_type_t
     DF(HAST_DS18B20, "DS18B20") \
     DF(HAST_DHT11, "DHT11")     \
     DF(HAST_DHT22, "DHT22")     \
+    DF(HAST_GATEWAY, "GATEWAY") \
     DF(HAST_MAX, "")
 
 typedef enum ha_sensor_type_t
@@ -372,6 +374,12 @@ typedef struct zh_sensor_status_message_t
     float reserved_5; // Reserved for future development.
 } __attribute__((packed)) zh_sensor_status_message_t;
 
+typedef struct zh_binary_sensor_status_message_t
+{
+    ha_sensor_type_t sensor_type;
+    ha_on_off_type_t status;
+} __attribute__((packed)) zh_binary_sensor_status_message_t;
+
 typedef struct zh_led_status_message_t
 {
     ha_on_off_type_t status;
@@ -418,6 +426,7 @@ typedef union zh_config_message_t
 
 typedef union zh_status_message_t
 {
+    zh_binary_sensor_status_message_t binary_sensor_status_message;
     zh_sensor_status_message_t sensor_status_message;
     zh_led_status_message_t led_status_message;
     zh_switch_status_message_t switch_status_message;
