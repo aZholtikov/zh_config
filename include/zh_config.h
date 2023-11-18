@@ -391,8 +391,7 @@ typedef struct zh_binary_sensor_status_message_t
 {
     ha_sensor_type_t sensor_type;
     ha_on_off_type_t connect;
-    ha_on_off_type_t window;
-    ha_on_off_type_t door;
+    ha_on_off_type_t open;
     ha_on_off_type_t battery;
     ha_on_off_type_t leakage;
     ha_on_off_type_t reserved_1; // Reserved for future development.
