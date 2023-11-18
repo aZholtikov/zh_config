@@ -246,7 +246,7 @@ char *get_switch_device_class_value_name(ha_switch_device_class_t value);
     DF(HAONOFT_HIGH, "HIGH")       \
     DF(HAONOFT_ALARM, "ALARM")     \
     DF(HAONOFT_DRY, "DRY")         \
-    DF(HAONOFT_MOVE, "MOVE")       \
+    DF(HAONOFT_MOTION, "MOTION")   \
     DF(HAONOFT_CONNECT, "CONNECT") \
     DF(HAONOFT_LEAKAGE, "LEAKAGE") \
     DF(HAONOFT_MAX, "")
@@ -301,13 +301,15 @@ typedef enum ha_led_type_t
 #undef DF
 } ha_led_type_t;
 //***********************************************************************************//
-#define HA_SENSOR_TYPE                \
-    DF(HAST_NONE, "")                 \
-    DF(HAST_DS18B20, "DS18B20")       \
-    DF(HAST_DHT11, "DHT11")           \
-    DF(HAST_DHT22, "DHT22")           \
-    DF(HAST_GATEWAY, "GATEWAY")       \
-    DF(HAST_OPEN_CLOSE, "OPEN_CLOSE") \
+#define HA_SENSOR_TYPE          \
+    DF(HAST_NONE, "")           \
+    DF(HAST_DS18B20, "DS18B20") \
+    DF(HAST_DHT11, "DHT11")     \
+    DF(HAST_DHT22, "DHT22")     \
+    DF(HAST_GATEWAY, "GATEWAY") \
+    DF(HAST_WINDOW, "WINDOW")   \
+    DF(HAST_DOOR, "DOOR")       \
+    DF(HAST_LEAKAGE, "LEAKAGE") \
     DF(HAST_MAX, "")
 
 typedef enum ha_sensor_type_t
@@ -389,8 +391,10 @@ typedef struct zh_binary_sensor_status_message_t
 {
     ha_sensor_type_t sensor_type;
     ha_on_off_type_t connect;
-    ha_on_off_type_t open;
+    ha_on_off_type_t window;
+    ha_on_off_type_t door;
     ha_on_off_type_t battery;
+    ha_on_off_type_t leakage;
     ha_on_off_type_t reserved_1; // Reserved for future development.
     ha_on_off_type_t reserved_2; // Reserved for future development.
     ha_on_off_type_t reserved_3; // Reserved for future development.
