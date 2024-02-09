@@ -14,3 +14,5 @@ In the application, add the component:
 ```c
 #include "zh_config.h"
 ```
+
+Any [feedback](mailto:github@azholtikov.ru) will be gladly accepted.
