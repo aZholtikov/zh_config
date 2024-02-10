@@ -4,16 +4,16 @@
 #include "stdint.h"
 #include "stdbool.h"
 
-#define HIGH true
-#define LOW false
+#define ZH_HIGH true
+#define ZH_LOW false
 
-#define ON true
-#define OFF false
+#define ZH_ON true
+#define ZH_OFF false
 
-#define ONLINE true
-#define OFFLINE false
+#define ZH_ONLINE true
+#define ZH_OFFLINE false
 
-#define NOT_USED 0xFF
+#define ZH_NOT_USED 0xFF
 //***********************************************************************************//
 #define ZH_DEVICE_TYPE                             \
     DF(ZHDT_NONE, "")                              \
@@ -36,7 +36,7 @@ typedef enum zh_device_type_t
 #undef DF
 } zh_device_type_t;
 
-char *get_device_type_value_name(zh_device_type_t value);
+char *zh_get_device_type_value_name(zh_device_type_t value);
 //***********************************************************************************//
 #define ZH_PAYLOAD_TYPE                 \
     DF(ZHPT_NONE, "")                   \
@@ -68,7 +68,7 @@ typedef enum zh_payload_type_t
 #undef DF
 } zh_payload_type_t;
 
-char *get_payload_type_value_name(zh_payload_type_t value);
+char *zh_get_payload_type_value_name(zh_payload_type_t value);
 //***********************************************************************************//
 #define HA_COMPONENT_TYPE                               \
     DF(HACT_NONE, "")                                   \
@@ -101,7 +101,7 @@ typedef enum ha_component_type_t
 #undef DF
 } ha_component_type_t;
 
-char *get_component_type_value_name(ha_component_type_t value);
+char *zh_get_component_type_value_name(ha_component_type_t value);
 //***********************************************************************************//
 #define HA_BINARY_SENSOR_DEVICE_CLASS               \
     DF(HABSDC_NONE, "")                             \
@@ -142,7 +142,7 @@ typedef enum ha_binary_sensor_device_class_t
 #undef DF
 } ha_binary_sensor_device_class_t;
 
-char *get_binary_sensor_device_class_value_name(ha_binary_sensor_device_class_t value);
+char *zh_get_binary_sensor_device_class_value_name(ha_binary_sensor_device_class_t value);
 //***********************************************************************************//
 #define HA_COVER_DEVICE_CLASS    \
     DF(HACDC_NONE, "")           \
@@ -165,7 +165,7 @@ typedef enum ha_cover_device_class_t
 #undef DF
 } ha_cover_device_class_t;
 
-char *get_cover_device_class_value_name(ha_cover_device_class_t value);
+char *zh_get_cover_device_class_value_name(ha_cover_device_class_t value);
 //***********************************************************************************//
 #define HA_SENSOR_DEVICE_CLASS                                         \
     DF(HASDC_NONE, "")                                                 \
@@ -218,7 +218,7 @@ typedef enum ha_sensor_device_class_t
 #undef DF
 } ha_sensor_device_class_t;
 
-char *get_sensor_device_class_value_name(ha_sensor_device_class_t value);
+char *zh_get_sensor_device_class_value_name(ha_sensor_device_class_t value);
 //***********************************************************************************//
 #define HA_SWITCH_DEVICE_CLASS  \
     DF(HASWDC_NONE, "")         \
@@ -233,7 +233,7 @@ typedef enum ha_switch_device_class_t
 #undef DF
 } ha_switch_device_class_t;
 
-char *get_switch_device_class_value_name(ha_switch_device_class_t value);
+char *zh_get_switch_device_class_value_name(ha_switch_device_class_t value);
 //***********************************************************************************//
 #define HA_ON_OFF_TYPE             \
     DF(HAONOFT_NONE, "")           \
@@ -258,7 +258,7 @@ typedef enum ha_on_off_type_t
 #undef DF
 } ha_on_off_type_t;
 
-char *get_on_off_type_value_name(ha_on_off_type_t value);
+char *zh_get_on_off_type_value_name(ha_on_off_type_t value);
 //***********************************************************************************//
 #define HA_CHIP_TYPE             \
     DF(HACHT_NONE, "")           \
@@ -273,7 +273,7 @@ typedef enum ha_chip_type_t
 #undef DF
 } ha_chip_type_t;
 
-char *get_chip_type_value_name(ha_chip_type_t value);
+char *zh_get_chip_type_value_name(ha_chip_type_t value);
 //***********************************************************************************//
 #define HA_LED_EFFECT_TYPE \
     DF(HALET_NONE, "")     \
@@ -319,7 +319,7 @@ typedef enum ha_sensor_type_t
 #undef DF
 } ha_sensor_type_t;
 
-char *get_sensor_type_value_name(ha_sensor_type_t value);
+char *zh_get_sensor_type_value_name(ha_sensor_type_t value);
 //***********************************************************************************//
 typedef struct zh_sensor_config_message_t
 {

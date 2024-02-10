@@ -1,6 +1,6 @@
 #include "zh_config.h"
 
-char *get_device_type_value_name(zh_device_type_t value)
+char *zh_get_device_type_value_name(zh_device_type_t value)
 {
     switch (value)
     {
@@ -16,7 +16,7 @@ char *get_device_type_value_name(zh_device_type_t value)
     return "";
 }
 
-char *get_payload_type_value_name(zh_payload_type_t value)
+char *zh_get_payload_type_value_name(zh_payload_type_t value)
 {
     switch (value)
     {
@@ -32,7 +32,7 @@ char *get_payload_type_value_name(zh_payload_type_t value)
     return "";
 }
 
-char *get_component_type_value_name(ha_component_type_t value)
+char *zh_get_component_type_value_name(ha_component_type_t value)
 {
     switch (value)
     {
@@ -48,7 +48,7 @@ char *get_component_type_value_name(ha_component_type_t value)
     return "";
 }
 
-char *get_binary_sensor_device_class_value_name(ha_binary_sensor_device_class_t value)
+char *zh_get_binary_sensor_device_class_value_name(ha_binary_sensor_device_class_t value)
 {
     switch (value)
     {
@@ -64,7 +64,7 @@ char *get_binary_sensor_device_class_value_name(ha_binary_sensor_device_class_t 
     return "";
 }
 
-char *get_cover_device_class_value_name(ha_cover_device_class_t value)
+char *zh_get_cover_device_class_value_name(ha_cover_device_class_t value)
 {
     switch (value)
     {
@@ -80,7 +80,7 @@ char *get_cover_device_class_value_name(ha_cover_device_class_t value)
     return "";
 }
 
-char *get_sensor_device_class_value_name(ha_sensor_device_class_t value)
+char *zh_get_sensor_device_class_value_name(ha_sensor_device_class_t value)
 {
     switch (value)
     {
@@ -96,7 +96,7 @@ char *get_sensor_device_class_value_name(ha_sensor_device_class_t value)
     return "";
 }
 
-char *get_switch_device_class_value_name(ha_switch_device_class_t value)
+char *zh_get_switch_device_class_value_name(ha_switch_device_class_t value)
 {
     switch (value)
     {
@@ -112,7 +112,7 @@ char *get_switch_device_class_value_name(ha_switch_device_class_t value)
     return "";
 }
 
-char *get_on_off_type_value_name(ha_on_off_type_t value)
+char *zh_get_on_off_type_value_name(ha_on_off_type_t value)
 {
     switch (value)
     {
@@ -128,7 +128,7 @@ char *get_on_off_type_value_name(ha_on_off_type_t value)
     return "";
 }
 
-char *get_chip_type_value_name(ha_chip_type_t value)
+char *zh_get_chip_type_value_name(ha_chip_type_t value)
 {
     switch (value)
     {
@@ -144,7 +144,7 @@ char *get_chip_type_value_name(ha_chip_type_t value)
     return "";
 }
 
-char *get_sensor_type_value_name(ha_sensor_type_t value)
+char *zh_get_sensor_type_value_name(ha_sensor_type_t value)
 {
     switch (value)
     {
