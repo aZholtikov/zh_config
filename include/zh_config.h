@@ -260,10 +260,15 @@ typedef enum ha_on_off_type_t
 
 char *zh_get_on_off_type_value_name(ha_on_off_type_t value);
 //***********************************************************************************//
-#define HA_CHIP_TYPE             \
-    DF(HACHT_NONE, "")           \
-    DF(HACHT_ESP32, "ESP32")     \
-    DF(HACHT_ESP8266, "ESP8266") \
+#define HA_CHIP_TYPE              \
+    DF(HACHT_NONE, "")            \
+    DF(HACHT_ESP32, "ESP32")      \
+    DF(HACHT_ESP8266, "ESP8266")  \
+    DF(HACHT_ESP32S2, "ESP32-S2") \
+    DF(HACHT_ESP32S3, "ESP32-S3") \
+    DF(HACHT_ESP32C2, "ESP32-C2") \
+    DF(HACHT_ESP32C3, "ESP32-C3") \
+    DF(HACHT_ESP32C6, "ESP32-C6") \
     DF(HACHT_MAX, "")
 
 typedef enum ha_chip_type_t
