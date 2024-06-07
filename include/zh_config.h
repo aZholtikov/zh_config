@@ -450,10 +450,10 @@ typedef struct // Structure for data exchange between ESP-NOW devices.
                 ha_binary_sensor_device_class_t binary_sensor_device_class; // Binary sensor type supported by the Home Assistant. @note Used to prepare a correct configuration message for Home Assistant MQTT discovery. For details see https://www.home-assistant.io/integrations/binary_sensor.
                 ha_on_off_type_t payload_on;                                // The payload that represents ON state.
                 ha_on_off_type_t payload_off;                               // The payload that represents OFF state.
-                uint16_t expire_after;                                      // If set, it defines the number of seconds after the sensor’s state expires, if it’s not updated. After expiry, the sensor’s state becomes unavailable.
-                uint16_t off_delay;                                         // For sensors that only send on state updates (like PIRs), this variable sets a delay in seconds after which the sensor’s state will be updated back to off.
+                uint16_t expire_after;                                      // If set, it defines the number of seconds after the sensors state expires, if its not updated. After expiry, the sensors state becomes unavailable.
+                uint16_t off_delay;                                         // For sensors that only send on state updates (like PIRs), this variable sets a delay in seconds after which the sensors state will be updated back to off.
                 bool enabled_by_default;                                    // Flag which defines if the entity should be enabled when first added.
-                bool force_update;                                          // Sends update events (which results in update of state object’s last_changed) even if the sensor’s state hasn’t changed. Useful if you want to have meaningful value graphs in history or want to create an automation that triggers on every incoming state message (not only when the sensor’s new state is different to the current one).
+                bool force_update;                                          // Sends update events (which results in update of state objects last_changed) even if the sensors state hasnt changed. Useful if you want to have meaningful value graphs in history or want to create an automation that triggers on every incoming state message (not only when the sensors new state is different to the current one).
                 uint8_t qos;                                                // The maximum QoS level to be used when receiving and publishing messages.
                 bool retain;                                                // If the published message should have the retain flag on or not.
             } binary_sensor_config_message;
@@ -462,10 +462,10 @@ typedef struct // Structure for data exchange between ESP-NOW devices.
                 uint8_t unique_id;                            // An ID that uniquely identifies this sensor device. @note The ID will look like this - "MAC-X" (for example 64-B7-08-31-00-A8-1). @attention If two sensors have the same unique ID, Home Assistant will raise an exception.
                 ha_sensor_device_class_t sensor_device_class; // Sensor type supported by the Home Assistant. @note Used to prepare a correct configuration message for Home Assistant MQTT discovery. For details see https://www.home-assistant.io/integrations/sensor.
                 char unit_of_measurement[5];                  // Defines the units of measurement of the sensor, if any.
-                uint8_t suggested_display_precision;          // The number of decimals which should be used in the sensor’s state after rounding.
-                uint16_t expire_after;                        // If set, it defines the number of seconds after the sensor’s state expires, if it’s not updated. After expiry, the sensor’s state becomes unavailable.
+                uint8_t suggested_display_precision;          // The number of decimals which should be used in the sensors state after rounding.
+                uint16_t expire_after;                        // If set, it defines the number of seconds after the sensors state expires, if its not updated. After expiry, the sensors state becomes unavailable.
                 bool enabled_by_default;                      // Flag which defines if the entity should be enabled when first added.
-                bool force_update;                            // Sends update events (which results in update of state object’s last_changed) even if the sensor’s state hasn’t changed. Useful if you want to have meaningful value graphs in history or want to create an automation that triggers on every incoming state message (not only when the sensor’s new state is different to the current one).
+                bool force_update;                            // Sends update events (which results in update of state objects last_changed) even if the sensors state hasnt changed. Useful if you want to have meaningful value graphs in history or want to create an automation that triggers on every incoming state message (not only when the sensors new state is different to the current one).
                 uint8_t qos;                                  // The maximum QoS level to be used when receiving and publishing messages.
                 bool retain;                                  // If the published message should have the retain flag on or not.
             } sensor_config_message;
