@@ -571,10 +571,8 @@ typedef struct // Structure for data exchange between ESP-NOW devices.
         {
             struct // Tertiary structure for transfer from ESP-NOW node to ESP-NOW gateway system information for OTA update initialization.
             {
-                zh_device_type_t device_type; // ESP-NOW device type.
-                char app_name[32];            // Firmware application name.
-                char app_version[32];         // Firmware application version.
-                uint8_t mac_addr[6];          // ESP-NOW node MAC address.
+                char app_name[32];    // Firmware application name.
+                char app_version[32]; // Firmware application version.
             } espnow_ota_data;
             struct // Tertiary structure for transfer from ESP-NOW gateway to ESP-NOW node OTA update data.
             {
