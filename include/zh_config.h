@@ -389,15 +389,20 @@ typedef enum // Enumeration of led types supported by gateway.
 #undef DF
 } ha_led_type_t;
 
-#define HA_SENSOR_TYPE          \
-    DF(HAST_NONE, "")           \
-    DF(HAST_DS18B20, "DS18B20") \
-    DF(HAST_DHT11, "DHT11")     \
-    DF(HAST_DHT22, "DHT22")     \
-    DF(HAST_GATEWAY, "")        \
-    DF(HAST_WINDOW, "")         \
-    DF(HAST_DOOR, "")           \
-    DF(HAST_LEAKAGE, "")        \
+#define HA_SENSOR_TYPE                                              \
+    DF(HAST_NONE, "")                                               \
+    DF(HAST_DS18B20, "DS18B20")                                     \
+    DF(HAST_DHT11, "DHT11") /* Deprecated. Will be removed soon. */ \
+    DF(HAST_DHT22, "DHT22") /* Deprecated. Will be removed soon. */ \
+    DF(HAST_GATEWAY, "")                                            \
+    DF(HAST_WINDOW, "")                                             \
+    DF(HAST_DOOR, "")                                               \
+    DF(HAST_LEAKAGE, "")                                            \
+    DF(HAST_DHT, "DHT") /* DHT11/DHT22/AM2302/AM2320 */             \
+    DF(HAST_BH1750, "BH1750")                                       \
+    DF(HAST_BMP280, "BMP280") /* BMP180/BMP280 */                   \
+    DF(HAST_BME280, "BME280")                                       \
+    DF(HAST_BME680, "BME680")                                       \
     DF(HAST_MAX, "")
 
 typedef enum // Enumeration of sensor / binary sensor supported by gateway.
