@@ -496,6 +496,7 @@ typedef struct // Structure for data exchange between ESP-NOW devices.
             } led_config_message;
             struct // Tertiary structure of zh_espnow_led node hardware configuration message. @note Used for change hardware configuration / publish at MQTT zh_espnow_led node hardware configuration message.
             {
+                ha_led_type_t led_type;   // Led type.
                 uint8_t first_white_pin;  // First white GPIO number.
                 uint8_t second_white_pin; // Second white GPIO number (if present).
                 uint8_t red_pin;          // Red GPIO number (if present).
