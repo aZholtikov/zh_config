@@ -213,48 +213,59 @@ typedef enum // Enumeration of cover types supported by the Home Assistant. For 
  */
 char *zh_get_cover_device_class_value_name(ha_cover_device_class_t value);
 
-#define HA_SENSOR_DEVICE_CLASS                                         \
-    DF(HASDC_NONE, "")                                                 \
-    DF(HASDC_APPARENT_POWER, "apparent_power")                         \
-    DF(HASDC_AQI, "aqi")                                               \
-    DF(HASDC_BATTERY, "battery")                                       \
-    DF(HASDC_CARBON_DIOXIDE, "carbon_dioxide")                         \
-    DF(HASDC_CARBON_MONOXIDE, "carbon_monoxide")                       \
-    DF(HASDC_CURRENT, "current")                                       \
-    DF(HASDC_DATE, "date")                                             \
-    DF(HASDC_DISTANCE, "distance")                                     \
-    DF(HASDC_DURATION, "duration")                                     \
-    DF(HASDC_ENERGY, "energy")                                         \
-    DF(HASDC_FREQUENCY, "frequency")                                   \
-    DF(HASDC_GAS, "gas")                                               \
-    DF(HASDC_HUMIDITY, "humidity")                                     \
-    DF(HASDC_ILLUMINANCE, "illuminance")                               \
-    DF(HASDC_MOISTURE, "moisture")                                     \
-    DF(HASDC_MONETARY, "monetar")                                      \
-    DF(HASDC_NITROGEN_DIOXIDE, "nitrogen_dioxide")                     \
-    DF(HASDC_NITROGEN_MONOXIDE, "nitrogen_monoxide")                   \
-    DF(HASDC_NITROUS_OXIDE, "nitrous_oxide")                           \
-    DF(HASDC_OZONE, "ozone")                                           \
-    DF(HASDC_PM1, "pm1")                                               \
-    DF(HASDC_PM10, "pm10")                                             \
-    DF(HASDC_PM25, "pm25")                                             \
-    DF(HASDC_POWER_FACTOR, "power_factor")                             \
-    DF(HASDC_POWER, "power")                                           \
-    DF(HASDC_PRECIPITATION, "precipitation")                           \
-    DF(HASDC_PRECIPITATION_INTENSITY, "precipitation_intensity")       \
-    DF(HASDC_PRESSURE, "pressure")                                     \
-    DF(HASDC_REACTIVE_POWER, "reactive_power")                         \
-    DF(HASDC_SIGNAL_STRENGTH, "signal_strength")                       \
-    DF(HASDC_SPEED, "speed")                                           \
-    DF(HASDC_SULPHUR_DIOXIDE, "sulphur_dioxide")                       \
-    DF(HASDC_TEMPERATURE, "temperature")                               \
-    DF(HASDC_TIMESTAMP, "timestamp")                                   \
-    DF(HASDC_VOLATILE_ORGANIC_COMPOUNDS, "volatile_organic_compounds") \
-    DF(HASDC_VOLTAGE, "voltage")                                       \
-    DF(HASDC_VOLUME, "volume")                                         \
-    DF(HASDC_WATER, "water")                                           \
-    DF(HASDC_WEIGHT, "weight")                                         \
-    DF(HASDC_WIND_SPEED, "wind_speed")                                 \
+#define HA_SENSOR_DEVICE_CLASS                                                                                                                                                                           \
+    DF(HASDC_NONE, "")                                                                                                                                                                                   \
+    DF(HASDC_APPARENT_POWER, "apparent_power")                                     /* Apparent power in VA */                                                                                            \
+    DF(HASDC_AQI, "aqi")                                                           /* Air quality index (unitless) */                                                                                    \
+    DF(HASDC_BATTERY, "battery")                                                   /* Percentage of battery that is left in % */                                                                         \
+    DF(HASDC_CARBON_DIOXIDE, "carbon_dioxide")                                     /* Carbon dioxide in CO2 (Smoke) in ppm */                                                                            \
+    DF(HASDC_CARBON_MONOXIDE, "carbon_monoxide")                                   /* Carbon monoxide in CO (Gas CNG/LPG) in ppm */                                                                      \
+    DF(HASDC_CURRENT, "current")                                                   /* Current in A, mA */                                                                                                \
+    DF(HASDC_DATE, "date")                                                         /* Date string (ISO 8601) */                                                                                          \
+    DF(HASDC_DISTANCE, "distance")                                                 /* Generic distance in km, m, cm, mm, mi, yd, or in */                                                                \
+    DF(HASDC_DURATION, "duration")                                                 /* Duration in d, h, min, or s */                                                                                     \
+    DF(HASDC_ENERGY, "energy")                                                     /* Energy in Wh, kWh, MWh, MJ, or GJ */                                                                               \
+    DF(HASDC_FREQUENCY, "frequency")                                               /* Frequency in Hz, kHz, MHz, or GHz */                                                                               \
+    DF(HASDC_GAS, "gas")                                                           /* Gasvolume in m³, ft³ or CCF */                                                                                   \
+    DF(HASDC_HUMIDITY, "humidity")                                                 /* Percentage of humidity in the air in % */                                                                          \
+    DF(HASDC_ILLUMINANCE, "illuminance")                                           /* The current light level in lx */                                                                                   \
+    DF(HASDC_MOISTURE, "moisture")                                                 /* Percentage of water in a substance in % */                                                                         \
+    DF(HASDC_MONETARY, "monetary")                                                 /* The monetary value (ISO 4217) */                                                                                   \
+    DF(HASDC_NITROGEN_DIOXIDE, "nitrogen_dioxide")                                 /* Concentration of nitrogen dioxide in µg/m³ */                                                                    \
+    DF(HASDC_NITROGEN_MONOXIDE, "nitrogen_monoxide")                               /* Concentration of nitrogen monoxide in µg/m³ */                                                                   \
+    DF(HASDC_NITROUS_OXIDE, "nitrous_oxide")                                       /* Concentration of nitrous oxide in µg/m³ */                                                                       \
+    DF(HASDC_OZONE, "ozone")                                                       /* Concentration of ozone in µg/m³ */                                                                               \
+    DF(HASDC_PM1, "pm1")                                                           /* Concentration of particulate matter less than 1 micrometer in µg/m³ */                                           \
+    DF(HASDC_PM10, "pm10")                                                         /* Concentration of particulate matter less than 10 micrometers in µg/m³ */                                         \
+    DF(HASDC_PM25, "pm25")                                                         /* Concentration of particulate matter less than 2.5 micrometers in µg/m³ */                                        \
+    DF(HASDC_POWER_FACTOR, "power_factor")                                         /* Power factor (unitless), unit may be None or % */                                                                  \
+    DF(HASDC_POWER, "power")                                                       /* Power in W or kW */                                                                                                \
+    DF(HASDC_PRECIPITATION, "precipitation")                                       /* Accumulated precipitation in cm, in or mm */                                                                       \
+    DF(HASDC_PRECIPITATION_INTENSITY, "precipitation_intensity")                   /* Precipitation intensity in in/d, in/h, mm/d or mm/h */                                                             \
+    DF(HASDC_PRESSURE, "pressure")                                                 /* Pressure in Pa, kPa, hPa, bar, cbar, mbar, mmHg, inHg or psi */                                                    \
+    DF(HASDC_REACTIVE_POWER, "reactive_power")                                     /* Reactive power in var */                                                                                           \
+    DF(HASDC_SIGNAL_STRENGTH, "signal_strength")                                   /* Signal strength in dB or dBm */                                                                                    \
+    DF(HASDC_SPEED, "speed")                                                       /* Generic speed in ft/s, in/d, in/h, km/h, kn, m/s, mph or mm/d */                                                   \
+    DF(HASDC_SULPHUR_DIOXIDE, "sulphur_dioxide")                                   /* Concentration of sulphur dioxide in µg/m³ */                                                                     \
+    DF(HASDC_TEMPERATURE, "temperature")                                           /* Temperature in °C, °F or K */                                                                                    \
+    DF(HASDC_TIMESTAMP, "timestamp")                                               /* Datetime object or timestamp string (ISO 8601) */                                                                  \
+    DF(HASDC_VOLATILE_ORGANIC_COMPOUNDS, "volatile_organic_compounds")             /* Concentration of volatile organic compounds in µg/m³ */                                                          \
+    DF(HASDC_VOLTAGE, "voltage")                                                   /* Voltage in V, mV */                                                                                                \
+    DF(HASDC_VOLUME, "volume")                                                     /* Generic volume in L, mL, gal, fl. oz., m³, ft³, or CCF */                                                        \
+    DF(HASDC_WATER, "water")                                                       /* Water consumption in L, gal, m³, ft³, or CCF */                                                                  \
+    DF(HASDC_WEIGHT, "weight")                                                     /* Generic mass in kg, g, mg, µg, oz, lb, or st */                                                                   \
+    DF(HASDC_WIND_SPEED, "wind_speed")                                             /* Wind speed in Beaufort, ft/s, km/h, kn, m/s, or mph */                                                             \
+    DF(HASDC_ATMOSPHERIC_PRESSURE, "atmospheric_pressure")                         /* Atmospheric pressure in cbar, bar, hPa, mmHg, inHg, kPa, mbar, Pa or psi */                                        \
+    DF(HASDC_DATA_RATE, "data_rate")                                               /* Data rate in bit/s, kbit/s, Mbit/s, Gbit/s, B/s, kB/s, MB/s, GB/s, KiB/s, MiB/s or GiB/s */                        \
+    DF(HASDC_DATA_SIZE, "data_size")                                               /* Data size in bit, kbit, Mbit, Gbit, B, kB, MB, GB, TB, PB, EB, ZB, YB, KiB, MiB, GiB, TiB, PiB, EiB, ZiB or YiB */ \
+    DF(HASDC_ENERGY_STORAGE, "energy_storage")                                     /* Stored energy in Wh, kWh, MWh, MJ, or GJ */                                                                        \
+    DF(HASDC_ENUM, "enum")                                                         /* Has a limited set of (non-numeric) states */                                                                       \
+    DF(HASDC_IRRADIANCE, "irradiance")                                             /* Irradiance in W/m² or BTU/(h⋅ft²) */                                                                           \
+    DF(HASDC_PH, "ph")                                                             /* Potential hydrogen (pH) value of a water solution */                                                               \
+    DF(HASDC_SOUND_PRESSURE, "sound_pressure")                                     /* Sound pressure in dB or dBA */                                                                                     \
+    DF(HASDC_VOLATILE_ORGANIC_COMPOUNDS_PARTS, "volatile_organic_compounds_parts") /* Ratio of volatile organic compounds in ppm or ppb */                                                               \
+    DF(HASDC_VOLUME_FLOW_RATE, "volume_flow_rate")                                 /* Volume flow rate in m³/h, ft³/min, L/min, gal/min */                                                             \
+    DF(HASDC_VOLUME_STORAGE, "volume_storage")                                     /* Generic stored volume in L, mL, gal, fl. oz., m³, ft³, or CCF */                                                 \
     DF(HASDC_MAX, "")
 
 typedef enum // Enumeration of sensor types supported by the Home Assistant. For details see https://www.home-assistant.io/integrations/sensor.
@@ -542,20 +553,40 @@ typedef struct // Structure for data exchange between ESP-NOW devices.
                 ha_on_off_type_t reserved_3;  // Reserved for future development.
                 ha_on_off_type_t reserved_4;  // Reserved for future development.
                 ha_on_off_type_t reserved_5;  // Reserved for future development.
+                ha_on_off_type_t reserved_6;  // Reserved for future development.
+                ha_on_off_type_t reserved_7;  // Reserved for future development.
+                ha_on_off_type_t reserved_8;  // Reserved for future development.
+                ha_on_off_type_t reserved_9;  // Reserved for future development.
+                ha_on_off_type_t reserved_10; // Reserved for future development.
+                ha_on_off_type_t reserved_11; // Reserved for future development.
+                ha_on_off_type_t reserved_12; // Reserved for future development.
+                ha_on_off_type_t reserved_13; // Reserved for future development.
+                ha_on_off_type_t reserved_14; // Reserved for future development.
+                ha_on_off_type_t reserved_15; // Reserved for future development.
             } binary_sensor_status_message;
             struct // Tertiary structure of zh_espnow_sensor node status message.
             {
                 ha_sensor_type_t sensor_type; // Sensor types. @note Used to identify the sensor type by ESP-NOW gateway and send the appropriate sensor status messages to MQTT.
                 float temperature;            // Temperature value (if present).
                 float humidity;               // Humidity value (if present).
-                float pressure;               // Pressure value (if present).
-                float quality;                // Quality value (if present).
+                float atmospheric_pressure;   // Atmospheric pressure value (if present).
+                float aqi;                    // Air quality index (if present).
                 float voltage;                // Voltage value (if present).
-                float reserved_1;             // Reserved for future development.
-                float reserved_2;             // Reserved for future development.
+                float illuminance;            // Light level (if present).
+                float uv_index;               // UV index (if present).
                 float reserved_3;             // Reserved for future development.
                 float reserved_4;             // Reserved for future development.
                 float reserved_5;             // Reserved for future development.
+                float reserved_6;             // Reserved for future development.
+                float reserved_7;             // Reserved for future development.
+                float reserved_8;             // Reserved for future development.
+                float reserved_9;             // Reserved for future development.
+                float reserved_10;            // Reserved for future development.
+                float reserved_11;            // Reserved for future development.
+                float reserved_12;            // Reserved for future development.
+                float reserved_13;            // Reserved for future development.
+                float reserved_14;            // Reserved for future development.
+                float reserved_15;            // Reserved for future development.
             } sensor_status_message;
             struct // Tertiary structure of zh_espnow_led node status message.
             {
