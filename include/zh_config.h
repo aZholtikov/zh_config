@@ -400,20 +400,22 @@ typedef enum // Enumeration of led types supported by gateway.
 #undef DF
 } ha_led_type_t;
 
-#define HA_SENSOR_TYPE                                              \
-    DF(HAST_NONE, "")                                               \
-    DF(HAST_DS18B20, "DS18B20")                                     \
-    DF(HAST_DHT11, "DHT11") /* Deprecated. Will be removed soon. */ \
-    DF(HAST_DHT22, "DHT22") /* Deprecated. Will be removed soon. */ \
-    DF(HAST_GATEWAY, "")                                            \
-    DF(HAST_WINDOW, "")                                             \
-    DF(HAST_DOOR, "")                                               \
-    DF(HAST_LEAKAGE, "")                                            \
-    DF(HAST_DHT, "DHT") /* DHT11/DHT22/AM2302/AM2320 */             \
-    DF(HAST_BH1750, "BH1750")                                       \
-    DF(HAST_BMP280, "BMP280") /* BMP180/BMP280 */                   \
-    DF(HAST_BME280, "BME280")                                       \
-    DF(HAST_BME680, "BME680")                                       \
+#define HA_SENSOR_TYPE                                      \
+    DF(HAST_NONE, "")                                       \
+    DF(HAST_DS18B20, "DS18B20")                             \
+    DF(HAST_AHT, "AHT") /* AHT10/AHT20/AHT21/AHT25/AHT30 */ \
+    DF(HAST_SHT, "SHT") /* SHT2X/3X/4X */                   \
+    DF(HAST_GATEWAY, "")                                    \
+    DF(HAST_WINDOW, "")                                     \
+    DF(HAST_DOOR, "")                                       \
+    DF(HAST_LEAKAGE, "")                                    \
+    DF(HAST_DHT, "DHT") /* DHT11/DHT22/AM2302/AM2320 */     \
+    DF(HAST_BH1750, "BH1750")                               \
+    DF(HAST_BMP280, "BMP280") /* BMP180/BMP280 */           \
+    DF(HAST_BME280, "BME280")                               \
+    DF(HAST_BME680, "BME680")                               \
+    DF(HAST_HTU21D, "HTU21D")                               \
+    DF(HAST_HDC1080, "HDC1080")                             \
     DF(HAST_MAX, "")
 
 typedef enum // Enumeration of sensor / binary sensor supported by gateway.
@@ -487,7 +489,7 @@ typedef struct // Structure for data exchange between ESP-NOW devices.
             } sensor_config_message;
             struct // Tertiary structure of zh_espnow_sensor node hardware configuration message. @note Used for change hardware configuration / publish at MQTT zh_espnow_sensor node hardware configuration message.
             {
-                ha_sensor_type_t sensor_type;   // Sensor types. @note Used in zh_espnow_sensor firmware only.
+                ha_sensor_type_t sensor_type;   // Sensor type. @note Used in zh_espnow_sensor firmware only.
                 uint8_t sensor_pin_1;           // Sensor GPIO number 1. @note Main pin for 1-wire sensors, SDA pin for I2C sensors.
                 uint8_t sensor_pin_2;           // Sensor GPIO number 2. @note SCL pin for I2C sensors.
                 uint8_t power_pin;              // Power GPIO number (if used sensor power control).
@@ -536,14 +538,14 @@ typedef struct // Structure for data exchange between ESP-NOW devices.
                 uint8_t ext_button_pin;       // External button GPIO number (if present).
                 bool ext_button_on_level;     // External button trigger level (if present). @note HIGH (true) / LOW (false).
                 uint8_t sensor_pin;           // Sensor GPIO number (if present).
-                ha_sensor_type_t sensor_type; // Sensor types (if present). @note Used to identify the sensor type by ESP-NOW gateway and send the appropriate sensor status messages to MQTT.
+                ha_sensor_type_t sensor_type; // Sensor type (if present). @note Used to identify the sensor type by ESP-NOW gateway and send the appropriate sensor status messages to MQTT.
             } switch_hardware_config_message;
         } config_message;
         union // Secondary union of structures of any status messages. @attention Not used in this view. Should be converted to the required tertiary structure.
         {
             struct // Tertiary structure of zh_espnow_binary_sensor node status message.
             {
-                ha_sensor_type_t sensor_type; // Binary sensor types.  @note Used to identify the binary sensor type by ESP-NOW gateway and send the appropriate binary sensor status messages to MQTT.
+                ha_sensor_type_t sensor_type; // Binary sensor type. @note Used to identify the binary sensor type by ESP-NOW gateway and send the appropriate binary sensor status messages to MQTT.
                 ha_on_off_type_t connect;     // Event that caused the sensor to be triggered (if present). @note Example - CONNECT @attention Must be same with set on binary_sensor_config_message structure.
                 ha_on_off_type_t open;        // Event that caused the sensor to be triggered (if present). @note Example - OPEN / CLOSE @attention Must be same with set on binary_sensor_config_message structure.
                 ha_on_off_type_t battery;     // Event that caused the sensor to be triggered (if present). @note Example - HIGH / LOW @attention Must be same with set on binary_sensor_config_message structure.
@@ -566,7 +568,7 @@ typedef struct // Structure for data exchange between ESP-NOW devices.
             } binary_sensor_status_message;
             struct // Tertiary structure of zh_espnow_sensor node status message.
             {
-                ha_sensor_type_t sensor_type; // Sensor types. @note Used to identify the sensor type by ESP-NOW gateway and send the appropriate sensor status messages to MQTT.
+                ha_sensor_type_t sensor_type; // Sensor type. @note Used to identify the sensor type by ESP-NOW gateway and send the appropriate sensor status messages to MQTT.
                 float temperature;            // Temperature value (if present).
                 float humidity;               // Humidity value (if present).
                 float atmospheric_pressure;   // Atmospheric pressure value (if present).
