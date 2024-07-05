@@ -414,7 +414,7 @@ typedef enum // Enumeration of led types supported by gateway.
     DF(HAST_BMP280, "BMP280") /* BMP180/BMP280 */           \
     DF(HAST_BME280, "BME280")                               \
     DF(HAST_BME680, "BME680")                               \
-    DF(HAST_HTU21D, "HTU21D")                               \
+    DF(HAST_HTU, "HTU") /* HTU20/HTU21/HTU30/HTU31 */       \
     DF(HAST_HDC1080, "HDC1080")                             \
     DF(HAST_MAX, "")
 
