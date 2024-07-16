@@ -69,6 +69,7 @@ char *zh_get_device_type_value_name(zh_device_type_t value);
     DF(ZHPT_RGB, "rgb")                 \
     DF(ZHPT_EFFECT, "effect")           \
     DF(ZHPT_HARDWARE, "hardware")       \
+    DF(ZHPT_ERROR, "")                  \
     DF(ZHPT_MAX, "")
 
 typedef enum // Enumeration of payload types supported by the ESP-NOW gateway.
@@ -604,6 +605,11 @@ typedef struct // Structure for data exchange between ESP-NOW devices.
             {
                 ha_on_off_type_t status; // Status of the zh_espnow_switch. @note Example - ON / OFF. @attention Must be same with set on switch_config_message structure.
             } switch_status_message;
+            struct // Tertiary structure of ESP-NOW node error message.
+            {
+                char message[150]; // Error message.
+            } error_message;
+
         } status_message;
         union // Secondary union of structures of any OTA update messages. @attention Not used in this view. Should be converted to the required tertiary structure.
         {
