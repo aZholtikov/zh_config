@@ -530,16 +530,17 @@ typedef struct // Structure for data exchange between ESP-NOW devices.
             } switch_config_message;
             struct // Tertiary structure of zh_espnow_switch node hardware configuration message. @note Used for change hardware configuration / publish at MQTT zh_espnow_switch node hardware configuration message.
             {
-                uint8_t relay_pin;            // Relay GPIO number.
-                bool relay_on_level;          // Relay ON level. @note HIGH (true) / LOW (false).
-                uint8_t led_pin;              // Led GPIO number (if present).
-                bool led_on_level;            // Led ON level (if present). @note HIGH (true) / LOW (false).
-                uint8_t int_button_pin;       // Internal button GPIO number (if present).
-                bool int_button_on_level;     // Internal button trigger level (if present). @note HIGH (true) / LOW (false).
-                uint8_t ext_button_pin;       // External button GPIO number (if present).
-                bool ext_button_on_level;     // External button trigger level (if present). @note HIGH (true) / LOW (false).
-                uint8_t sensor_pin;           // Sensor GPIO number (if present).
-                ha_sensor_type_t sensor_type; // Sensor type (if present). @note Used to identify the sensor type by ESP-NOW gateway and send the appropriate sensor status messages to MQTT.
+                uint8_t relay_pin;              // Relay GPIO number.
+                bool relay_on_level;            // Relay ON level. @note HIGH (true) / LOW (false).
+                uint8_t led_pin;                // Led GPIO number (if present).
+                bool led_on_level;              // Led ON level (if present). @note HIGH (true) / LOW (false).
+                uint8_t int_button_pin;         // Internal button GPIO number (if present).
+                bool int_button_on_level;       // Internal button trigger level (if present). @note HIGH (true) / LOW (false).
+                uint8_t ext_button_pin;         // External button GPIO number (if present).
+                bool ext_button_on_level;       // External button trigger level (if present). @note HIGH (true) / LOW (false).
+                uint8_t sensor_pin;             // Sensor GPIO number (if present).
+                ha_sensor_type_t sensor_type;   // Sensor type (if present). @note Used to identify the sensor type by ESP-NOW gateway and send the appropriate sensor status messages to MQTT.
+                uint16_t measurement_frequency; // Sensor measurement frequency (if present).
             } switch_hardware_config_message;
         } config_message;
         union // Secondary union of structures of any status messages. @attention Not used in this view. Should be converted to the required tertiary structure.
